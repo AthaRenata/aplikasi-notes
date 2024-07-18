@@ -1,0 +1,65 @@
+:root{
+    --theme1-color: #889696; 
+    --theme2-color: #b8bdb5;
+    --theme3-color: #d2d4c8;
+    --theme4-color: #e0e2db;
+    --theme5-color: #5f7470;
+}
+
+.text-theme1{
+color: var(--theme1-color) !important;
+}
+.text-theme2{
+color: var(--theme2-color) !important;
+}
+.text-theme3{
+color: var(--theme3-color) !important;
+}
+.text-theme4{
+color: var(--theme4-color) !important;
+}
+.text-theme5{
+color: var(--theme5-color) !important;
+}
+
+.bg-theme1{
+background-color: var(--theme1-color) !important;
+}
+.bg-theme2{
+background-color: var(--theme2-color) !important;
+}
+.bg-theme3{
+background-color: var(--theme3-color) !important;
+}
+.bg-theme4{
+background-color: var(--theme4-color) !important;
+}
+.bg-theme5{
+background-color: var(--theme5-color) !important;
+}
+.bg-theme-gradient{
+background: var(--theme4-color);
+background: linear-gradient(315deg, var(--theme4-color), var(--theme5-color)) !important;
+}
+
+#bg-login {
+background: #10F780;
+background: linear-gradient(315deg, #10F780, #565AF4);
+}
+
+.linkwborder {  
+    display: inline-block !important;
+    background-image: linear-gradient(white, white) !important;
+    background-size: 0% 3px !important;
+    background-repeat: no-repeat !important;
+    transition: background-size 0.3s !important;
+    margin: 5px 0 !important; 
+    background-position: 50% calc(100% - 0px) !important;
+}
+
+.linkwborder:hover { background-size: 100% 3px !important; }
+
+.activelink {
+    color: white !important;
+    text-shadow: 2px 2px 5px black !important;
+}
