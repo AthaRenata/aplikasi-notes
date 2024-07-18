@@ -17,7 +17,7 @@
         <div class="card-header text-center bg-theme3">
           <h3>APLIKASI NOTES</h3>
         </div>
-        <form method="POST" method="/" autocomplete="off">
+        <form method="POST" method="{{route('authenticate')}}" autocomplete="off">
             @csrf
         <div class="card-body bg-theme4">
                 <div class="mb-3">

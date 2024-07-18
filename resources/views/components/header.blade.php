@@ -2,7 +2,7 @@
 <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-5 text-white" href="/users">Aplikasi Notes</a>
 <div>
 <p class="navbar-nav d-none d-lg-inline text-white fs-6 px-3">Selamat Datang, {{Auth::user()->name}} | 
-  <form action="/logout" method="POST" class="d-inline">
+  <form action="{{route('logout')}}" method="POST" class="d-inline">
   @csrf
 <button class="btn btn-danger d-inline m-1" onclick="return confirm('Yakin akan keluar dari aplikasi?')">Sign out</button>
 </form>

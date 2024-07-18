@@ -5,9 +5,9 @@
 
         <div class="d-flex justify-content-end mb-3">
           <div class="mx-3">
-            <a href="/users/activate" class="btn btn-success text-decoration-none"><i class="bi-check px-1"></i> Aktifkan Pengguna</button></a>
+            <a href="{{route('users.inactive')}}" class="btn btn-success text-decoration-none"><i class="bi-check px-1"></i> Aktifkan Pengguna</button></a>
           </div>
-            <a href="/users/create" class="btn btn-primary text-decoration-none"><i class="bi-plus-circle px-1"></i> Tambah Pengguna</button></a>
+            <a href="{{route('users.create')}}" class="btn btn-primary text-decoration-none"><i class="bi-plus-circle px-1"></i> Tambah Pengguna</button></a>
         </div>
 
         @if (session()->has('success'))
@@ -38,11 +38,11 @@
                                 <td>{{$user->phone}}</td>
                                 <td>{{($user->role==1) ? "Admin" : "Pengguna"}}</td>
                                 <td>
-                                    <a href="/users/{{$user->id}}/edit" class="btn btn-warning"  data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Ubah Data"><i class="bi-pencil"></i></a>
+                                    <a href="{{route('users.edit',$user->id)}}" class="btn btn-warning"  data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Ubah Data"><i class="bi-pencil"></i></a>
                                     @if ($user->id==1)
                                         Utama
                                     @else
-                                    <form action="/users/{{$user->id}}" method="POST" class="d-inline">
+                                    <form action="{{route('users.destroy',$user->id)}}" method="POST" class="d-inline">
                                         @method('delete')
                                         @csrf
                                         <button class="btn btn-danger" onclick="return confirm('Yakin akan hapus data ini?')"  data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Hapus Data"><i class="bi-trash"></i></button>

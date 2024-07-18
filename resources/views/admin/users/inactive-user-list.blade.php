@@ -1,7 +1,7 @@
 <x-layout>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5 pb-2 mb-3 border-bottom">
         <div >
-        <a href="/users" class="text-body-secondary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Pengguna" ><i class="bi-people-fill fs-1"></i></a>
+        <a href="{{route('users.index')}}" class="text-body-secondary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Pengguna" ><i class="bi-people-fill fs-1"></i></a>
         <i class="bi-caret-right-fill fs-1"></i>
         <h1 class="h2 d-inline">Data Registrasi Pengguna</h1>
         </div>
@@ -35,7 +35,7 @@
                                 <td>{{$user->phone}}</td>
                                 <td>{{($user->role==1) ? "Admin" : "Pengguna"}}</td>
                                 <td>
-                                    <form action="/users/activate/{{$user->id}}" method="POST" class="d-inline">
+                                    <form action="{{route('users.activate',$user->id)}}" method="POST" class="d-inline">
                                         @method('patch')
                                         @csrf
                                         <button class="btn btn-success" onclick="return confirm('Yakin akan mengaktifkan pengguna ini?')"  data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Aktifkan"><i class="bi-check"></i></button>

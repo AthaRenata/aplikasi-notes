@@ -1,13 +1,13 @@
 <x-layout>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5 pb-2 mb-3 border-bottom">
         <h1 class="h2">
-            <a href="/users" class="text-body-secondary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Pengguna" ><i class="bi-people-fill fs-1"></i></a>
+            <a href="{{route('users.index')}}" class="text-body-secondary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Pengguna" ><i class="bi-people-fill fs-1"></i></a>
         <i class="bi-caret-right-fill fs-1"></i>
         Ubah Pengguna</h1>
         </div>
           
             <div class="mt-2 p-3 text-body-secondary">
-                <form action="/users/{{$user->id}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('users.update',$user->id)}}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     @if ($user->role==1)
