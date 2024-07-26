@@ -1,6 +1,8 @@
 <?php 
 namespace App\Repositories;
 
+use App\Models\Category;
+use App\Models\Note;
 use App\Models\User;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
@@ -55,7 +57,21 @@ class UserRepository{
 
     public function delete($id)
     {
-        return $this->model::findOrFail($id)
-                    ->delete();
+        $user = User::findOrFail($id);
+
+        $note_ids = $user->notes()->pluck('id');
+
+        foreach ($note_ids as $note_id) {
+            $note = Note::find($note_id);
+            if ($note) {
+                $note->categories()->detach();
+            }
+        }
+
+        $user->notes()->delete();
+
+        $user->categories()->delete();
+
+        return $user->delete();
     }
 }
